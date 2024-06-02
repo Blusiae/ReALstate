@@ -1,4 +1,5 @@
 using ReALstate.Infrastructure.Extensions;
+using ReALstate.UseCases.Extenstions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddUseCases();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();

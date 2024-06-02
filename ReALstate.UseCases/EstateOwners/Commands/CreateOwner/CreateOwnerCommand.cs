@@ -1,9 +1,9 @@
-﻿namespace ReALstate.Domain.Entities
+﻿using MediatR;
+
+namespace ReALstate.UseCases.EstateOwners.Commands.CreateOwner
 {
-    public class EstateOwner
+    public class CreateOwnerCommand : IRequest<int>
     {
-        public int Id { get; set; }
-        public List<Estate> Estates = new();
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;
         public string? Nationality { get; set; }
