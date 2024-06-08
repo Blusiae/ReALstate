@@ -2,15 +2,14 @@
 
 namespace ReALstate.Domain.Entities
 {
-    public class Estate
+    public abstract class Estate
     {
         public int Id { get; set; }
         public string Description { get; set; } = default!;
         public string ImageUrl { get; set; } = default!;
         public double MetersSquared { get; set; }
         public double Value { get; set; }
-        public Enum State { get; set; } = default!;
-        public Address Address { get; set; } = default!;
+        public State State { get; set; } = default!;
         public Customer Owner { get; set; } = default!;
         public int OwnerId { get; set; }
         public DateOnly YearBuilt { get; set; }
