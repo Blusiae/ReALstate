@@ -1,18 +1,18 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ReALstate.Domain.Entities;
-using ReALstate.UseCases.EstateOwners.Commands.CreateOwner;
-using ReALstate.UseCases.EstateOwners.Querries.GetAllOwners;
+using ReALstate.UseCases.Customers.Commands.CreateCustomer;
+using ReALstate.UseCases.Customers.Querries.GetAllOwners;
 
 namespace ReALstate.API.Controllers
 {
     [ApiController]
-    [Route("/api/estateOwner")]
-    public class EstateOwnersController(IMediator mediator) : ControllerBase
+    [Route("/api/customer")]
+    public class CustomerController(IMediator mediator) : ControllerBase
     {
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateOwnerCommand command)
+        public async Task<IActionResult> Create(CreateCustomerCommand command)
         {
             int id = await mediator.Send(command);
             return Ok(id);
@@ -20,7 +20,7 @@ namespace ReALstate.API.Controllers
 
         
         [HttpGet]
-        public async Task<ActionResult<EstateOwner>> GetAll()
+        public async Task<ActionResult<Customer>> GetAll()
         {
             var restult = await mediator.Send(new GetAllCustomersQuery());
 
