@@ -10,6 +10,7 @@ namespace ReALstate.Domain.Entities
         public double MetersSquared { get; set; }
         public double Value { get; set; }
         public State State { get; set; } = default!;
+        public Address Address { get; set; } = default!;
         public Customer Owner { get; set; } = default!;
         public int OwnerId { get; set; }
         public DateOnly YearBuilt { get; set; }
