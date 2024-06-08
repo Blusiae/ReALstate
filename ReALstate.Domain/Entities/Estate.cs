@@ -13,7 +13,7 @@ namespace ReALstate.Domain.Entities
         public Address Address { get; set; } = default!;
         public Customer Owner { get; set; } = default!;
         public int OwnerId { get; set; }
-        public DateOnly YearBuilt { get; set; }
+        public DateTime? YearBuilt { get; set; }
 
         //Additional information
         public int BedroomsCount { get; set; }

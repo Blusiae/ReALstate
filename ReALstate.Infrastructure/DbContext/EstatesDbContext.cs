@@ -23,18 +23,21 @@ namespace ReALstate.Infrastructure.DbContext
             modelBuilder.Entity<Customer>()
                 .HasMany(owner => owner.Estates)
                 .WithOne()
-                .HasForeignKey(estate => estate.OwnerId);
+                .HasForeignKey(estate => estate.OwnerId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Customer>()
                 .HasMany(customer => customer.Offers)
                 .WithOne()
-                .HasForeignKey(offer => offer.CustomerId); ;
+                .HasForeignKey(offer => offer.CustomerId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Offer>()
                 .HasOne(offer => offer.Estate)
                 .WithMany()
-                .HasForeignKey(offer => offer.EstateId);
-               
+                .HasForeignKey(offer => offer.EstateId)
+                .OnDelete(DeleteBehavior.NoAction);
+
 
 
         }
