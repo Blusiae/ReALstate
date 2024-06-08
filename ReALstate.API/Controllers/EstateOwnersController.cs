@@ -22,7 +22,7 @@ namespace ReALstate.API.Controllers
         [HttpGet]
         public async Task<ActionResult<EstateOwner>> GetAll()
         {
-            var restult = await mediator.Send(new GetAllOwnersQuery());
+            var restult = await mediator.Send(new GetAllCustomersQuery());
 
             return Ok(restult);
         }

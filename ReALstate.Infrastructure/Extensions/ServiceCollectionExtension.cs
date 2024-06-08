@@ -17,7 +17,7 @@ namespace ReALstate.Infrastructure.Extensions
                 options.UseSqlServer(connectionString));
 
 
-            services.AddScoped<IEstateOwnerRepository, EstateOwnerRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IEstateRepository, EstateRepository>();
 
         }

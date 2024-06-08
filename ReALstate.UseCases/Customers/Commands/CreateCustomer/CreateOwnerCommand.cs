@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace ReALstate.UseCases.EstateOwners.Commands.CreateOwner
+namespace ReALstate.UseCases.Customers.Commands.CreateCustomer
 {
-    public class CreateOwnerCommand : IRequest<int>
+    public class CreateCustomerCommand : IRequest<int>
     {
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;
