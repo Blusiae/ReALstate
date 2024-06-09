@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Estates.Commands.DeleteEstate
 {
-    internal class DeleteEstateCommandHandler
+    public class DeleteEstateCommandHandler(IEstateRepository repository) : IRequestHandler<DeleteEstateCommand>
     {
+        public async Task Handle(DeleteEstateCommand request, CancellationToken cancellationToken)
+        {
+            var estate = await repository.GetByIdAsync(request.Id);
+            if (estate == null)
+            {
+                throw new Exception("Estate not found");
+            }
+            await repository.Delete(estate);
+
+        }
     }
 }

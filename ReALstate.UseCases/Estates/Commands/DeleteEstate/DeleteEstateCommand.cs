@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace ReALstate.UseCases.Estates.Commands.DeleteEstate
 {
-    internal class DeleteEstateCommand
+    public class DeleteEstateCommand(int id) : IRequest
     {
+        public int Id { get; set; } = id;
     }
 }
