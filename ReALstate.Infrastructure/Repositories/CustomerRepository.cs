@@ -7,27 +7,30 @@ namespace ReALstate.Infrastructure.Repositories
 {
     internal class CustomerRepository(EstatesDbContext dbContext) : ICustomerRepository
     {
-        public async Task<int> Create(Customer owner)
+        public async Task<int> Create(Customer customer)
         {
-            dbContext.Customers.Add(owner);
+            dbContext.Customers.Add(customer);
             await SaveChanges();
-            return owner.Id;
+            return customer.Id;
         }
 
-        public async Task Delete(Customer owner)
+        public async Task Delete(Customer customer)
         {
-            dbContext.Customers.Remove(owner);
+            dbContext.Customers.Remove(customer);
             await SaveChanges();
         }
 
         public async Task<IEnumerable<Customer>> GetAllAsync()
         {
-            return await dbContext.Customers.Include(owner => owner.Estates).ToListAsync();
+            return await dbContext.Customers
+                .Include(customer => customer.Estates)
+                .Include(customer => customer.Offers)
+                .ToListAsync();
         }
 
         public async Task<Customer?> GetByIdAsync(int id)
         {
-            return await dbContext.Customers.Include(owner => owner.Estates).FirstOrDefaultAsync(owner => owner.Id == id);
+            return await dbContext.Customers.Include(customer => customer.Estates).FirstOrDefaultAsync(customer => customer.Id == id);
         }
 
         public async Task SaveChanges()
