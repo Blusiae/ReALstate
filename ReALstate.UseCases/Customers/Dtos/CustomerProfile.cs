@@ -4,11 +4,12 @@ using ReALstate.UseCases.Customers.Commands.CreateCustomer;
 
 namespace ReALstate.UseCases.Customers.Dtos
 {
-    internal class EstateOwnerProfile : Profile
+    internal class CustomerProfile : Profile
     {
-        public EstateOwnerProfile()
+        public CustomerProfile()
         {
             CreateMap<CreateCustomerCommand, Customer>();
+            CreateMap<Customer, CustomerDto>();
         }
     }
 }

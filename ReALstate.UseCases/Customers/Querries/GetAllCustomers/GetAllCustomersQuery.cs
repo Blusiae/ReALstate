@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using ReALstate.Domain.Entities;
+using ReALstate.UseCases.Customers.Dtos;
 
 namespace ReALstate.UseCases.Customers.Querries.GetAllOwners
 {
-    public class GetAllCustomersQuery : IRequest<IEnumerable<Customer>>
+    public class GetAllCustomersQuery : IRequest<IEnumerable<CustomerDto>>
     {
     }
 }
