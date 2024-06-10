@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ReALstate.UseCases.Apartments.Commands.CreateApartment;
 using ReALstate.UseCases.Apartments.Commands.DeleteApartment;
+using ReALstate.UseCases.Apartments.Dtos;
 using ReALstate.UseCases.Apartments.Querries;
 
 namespace ReALstate.API.Controllers
@@ -12,7 +13,7 @@ namespace ReALstate.API.Controllers
         (IMediator mediator): ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] GetAllApartmentsQuery query)
+        public async Task<ActionResult<IEnumerable<ApartmentDto>>> GetAll([FromQuery] GetAllApartmentsQuery query)
         {
             var apartments = await mediator.Send(query);
             return Ok(apartments);
