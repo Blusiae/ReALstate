@@ -10,14 +10,14 @@ namespace ReALstate.Infrastructure.Repositories
         public async Task<int> Create(Customer customer)
         {
             dbContext.Customers.Add(customer);
-            await SaveChanges();
+            await dbContext.SaveChangesAsync();
             return customer.Id;
         }
 
         public async Task Delete(Customer customer)
         {
             dbContext.Customers.Remove(customer);
-            await SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Customer>> GetAllAsync()
@@ -33,9 +33,5 @@ namespace ReALstate.Infrastructure.Repositories
             return await dbContext.Customers.Include(customer => customer.Estates).FirstOrDefaultAsync(customer => customer.Id == id);
         }
 
-        public async Task SaveChanges()
-        {
-            await dbContext.SaveChangesAsync();
-        }
     }
 }

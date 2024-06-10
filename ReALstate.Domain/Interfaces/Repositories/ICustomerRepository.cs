@@ -1,13 +1,10 @@
 ﻿using ReALstate.Domain.Entities;
+using ReALstate.Domain.Interfaces.Repositories.Base;
 
 namespace ReALstate.Domain.Interfaces.Repositories
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository : IBaseRepository<Customer>
     {
-        Task<IEnumerable<Customer>> GetAllAsync();
-        Task<Customer?> GetByIdAsync(int id);
-        Task<int> Create(Customer owner);
-        Task Delete(Customer owner);
-        Task SaveChanges();
+        
     }
 }

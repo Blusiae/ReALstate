@@ -11,14 +11,14 @@ namespace ReALstate.Infrastructure.Repositories
         public async Task<int> Create(Estate estate)
         {
             dbContext.Estates.Add(estate);
-            await SaveChanges();
+            await dbContext.SaveChangesAsync();
             return estate.Id;
         }
 
         public async Task Delete(Estate estate)
         {
             dbContext.Estates.Remove(estate);
-            await SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Estate>> GetAllAsync()
@@ -31,9 +31,5 @@ namespace ReALstate.Infrastructure.Repositories
             return await dbContext.Estates.FirstOrDefaultAsync(estate => estate.Id == id);
         }
 
-        public async Task SaveChanges()
-        {
-            await dbContext.SaveChangesAsync();
-        }
     }
 }
