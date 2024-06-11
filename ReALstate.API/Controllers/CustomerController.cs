@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using ReALstate.UseCases.Customers.Commands.CreateCustomer;
 using ReALstate.UseCases.Customers.Dtos;
 using ReALstate.UseCases.Customers.Querries.GetAllOwners;
+using ReALstate.UseCases.Customers.Querries.GetOwnerById;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ReALstate.API.Controllers
 {
@@ -26,5 +28,11 @@ namespace ReALstate.API.Controllers
             return Ok(id);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CustomerDto>> GetById([FromRoute] int id)
+        {
+            var customer = await mediator.Send( new GetCustomerByIdQuery(id) );
+            return Ok(customer);
+        }
     }
 }

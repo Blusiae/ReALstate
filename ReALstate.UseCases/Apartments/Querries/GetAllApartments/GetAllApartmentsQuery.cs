@@ -2,7 +2,7 @@
 using ReALstate.Domain.Entities;
 using ReALstate.UseCases.Apartments.Dtos;
 
-namespace ReALstate.UseCases.Apartments.Querries
+namespace ReALstate.UseCases.Apartments.Querries.GetAllApartments
 {
     public class GetAllApartmentsQuery : IRequest<IEnumerable<ApartmentDto>>
     {

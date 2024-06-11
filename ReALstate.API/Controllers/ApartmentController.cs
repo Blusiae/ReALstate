@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using ReALstate.UseCases.Apartments.Commands.CreateApartment;
 using ReALstate.UseCases.Apartments.Commands.DeleteApartment;
 using ReALstate.UseCases.Apartments.Dtos;
-using ReALstate.UseCases.Apartments.Querries;
+using ReALstate.UseCases.Apartments.Querries.GetAllApartments;
+using ReALstate.UseCases.Apartments.Querries.GetApartmentById;
 
 namespace ReALstate.API.Controllers
 {
@@ -31,6 +32,13 @@ namespace ReALstate.API.Controllers
         {
             var id = await mediator.Send(command);
             return Ok(id);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] int id)
+        {
+            var apartment = await mediator.Send(new GetApartmentByIdQuery(id));
+            return Ok(apartment);
         }
 
     }
