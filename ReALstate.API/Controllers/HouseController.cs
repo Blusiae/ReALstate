@@ -13,11 +13,11 @@ namespace ReALstate.API.Controllers
     public class HouseController
         (IMediator mediator) : ControllerBase
     {
-        [HttpGet("{id}")]
-        public async Task<ActionResult<HouseDto>> GetById([FromRoute] int id)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<HouseDto>> GetById([FromRoute] GetHouseByIdQuery query)
         {
             
-            return await mediator.Send(new GetHouseByIdQuery(id) );
+            return await mediator.Send(query);
         }
 
         [HttpGet]

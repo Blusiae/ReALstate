@@ -28,10 +28,10 @@ namespace ReALstate.API.Controllers
             return Ok(id);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerDto>> GetById([FromRoute] int id)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<CustomerDto>> GetById([FromRoute] GetCustomerByIdQuery query)
         {
-            var customer = await mediator.Send( new GetCustomerByIdQuery(id) );
+            var customer = await mediator.Send(query );
             return Ok(customer);
         }
 

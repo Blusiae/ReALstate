@@ -3,8 +3,8 @@ using ReALstate.UseCases.Apartments.Dtos;
 
 namespace ReALstate.UseCases.Apartments.Querries.GetApartmentById
 {
-    public class GetApartmentByIdQuery(int id) : IRequest<ApartmentDto>
+    public class GetApartmentByIdQuery : IRequest<ApartmentDto>
     {
-        public int Id { get; set; } = id;
+        public int Id { get; set; } 
     }
 }

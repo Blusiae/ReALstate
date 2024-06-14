@@ -34,10 +34,10 @@ namespace ReALstate.API.Controllers
             return Ok(id);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] int id)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] GetApartmentByIdQuery query)
         {
-            var apartment = await mediator.Send(new GetApartmentByIdQuery(id));
+            var apartment = await mediator.Send(query);
             return Ok(apartment);
         }
 
