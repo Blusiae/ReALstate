@@ -20,11 +20,11 @@ namespace ReALstate.API.Controllers
             return Ok(apartments);
         }
 
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] DeleteApartmentCommand command)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] GetApartmentByIdQuery query)
         {
-            await mediator.Send(command);
-            return Ok();
+            var apartment = await mediator.Send(query);
+            return Ok(apartment);
         }
 
         [HttpPost]
@@ -34,12 +34,16 @@ namespace ReALstate.API.Controllers
             return Ok(id);
         }
 
-        [HttpGet("{Id}")]
-        public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] GetApartmentByIdQuery query)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteApartmentCommand command)
         {
-            var apartment = await mediator.Send(query);
-            return Ok(apartment);
+            await mediator.Send(command);
+            return Ok();
         }
+
+        
+
+        
 
     }
 }

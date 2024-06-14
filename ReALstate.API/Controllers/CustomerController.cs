@@ -21,18 +21,18 @@ namespace ReALstate.API.Controllers
             return Ok(restult);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateCustomerCommand command)
-        {
-            int id = await mediator.Send(command);
-            return Ok(id);
-        }
-
         [HttpGet("{Id}")]
         public async Task<ActionResult<CustomerDto>> GetById([FromRoute] GetCustomerByIdQuery query)
         {
             var customer = await mediator.Send(query );
             return Ok(customer);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateCustomerCommand command)
+        {
+            int id = await mediator.Send(command);
+            return Ok(id);
         }
 
         [HttpDelete("{Id}")]
