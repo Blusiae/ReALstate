@@ -24,7 +24,7 @@ namespace ReALstate.UseCases.Offer.Commands.CreateOffer
 
             offer.Customer = customer;
             offer.Estate = estate;
-
+ 
             int id = await offerRepository.Create(offer);
 
             return id;
