@@ -21,6 +21,7 @@ namespace ReALstate.Infrastructure.Extensions
             services.AddScoped<IEstateRepository, EstateRepository>();
             services.AddScoped<IApartmentRepository, ApartmentRepository>();
             services.AddScoped<IHouseRepository, HouseRepository>();
+            services.AddScoped<IOfferRepository, OfferRepository>();
 
         }
     }
