@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ReALstate.UseCases.Customers.Commands.CreateCustomer;
+using ReALstate.UseCases.Customers.Commands.DeleteCustomer;
 using ReALstate.UseCases.Customers.Dtos;
 using ReALstate.UseCases.Customers.Querries.GetAllOwners;
 using ReALstate.UseCases.Customers.Querries.GetOwnerById;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ReALstate.API.Controllers
 {
@@ -33,6 +33,12 @@ namespace ReALstate.API.Controllers
         {
             var customer = await mediator.Send( new GetCustomerByIdQuery(id) );
             return Ok(customer);
+        }
+
+        public async Task<IActionResult> Delete(DeleteCustomerCommand command)
+        {
+            await mediator.Send(command);
+            return Ok();
         }
     }
 }
