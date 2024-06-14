@@ -4,6 +4,7 @@ using ReALstate.UseCases.Offer.Commands.CreateOffer;
 using ReALstate.UseCases.Offer.Commands.DeleteOffer;
 using ReALstate.UseCases.Offer.Dtos;
 using ReALstate.UseCases.Offer.Querries.GetAllOffers;
+using ReALstate.UseCases.Offer.Querries.GetOfferById;
 
 namespace ReALstate.API.Controllers
 {
@@ -16,6 +17,13 @@ namespace ReALstate.API.Controllers
         {
             var offers = await mediator.Send(query);
             return Ok(offers);
+        }
+
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<OfferDto>> GetById([FromRoute] GetOfferByIdQuery query)
+        {
+            var offer = await mediator.Send(query);
+            return Ok(offer);
         }
 
         [HttpPost]
