@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Estates\Commands\" />
     <Folder Include="Estates\Dtos\" />
+    <Folder Include="Estates\Querries\" />
   </ItemGroup>
 
 </Project>
