@@ -20,8 +20,8 @@ namespace ReALstate.API.Controllers
             return Ok(apartments);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteApartmentCommand command)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteApartmentCommand command)
         {
             await mediator.Send(command);
             return Ok();

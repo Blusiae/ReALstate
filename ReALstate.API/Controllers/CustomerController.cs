@@ -35,8 +35,8 @@ namespace ReALstate.API.Controllers
             return Ok(customer);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteCustomerCommand command)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteCustomerCommand command)
         {
             await mediator.Send(command);
             return Ok();

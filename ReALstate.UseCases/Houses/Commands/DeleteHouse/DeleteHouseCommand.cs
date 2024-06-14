@@ -2,8 +2,8 @@
 
 namespace ReALstate.UseCases.Houses.Commands.DeleteHouse
 {
-    public class DeleteHouseCommand(int id) : IRequest
+    public class DeleteHouseCommand : IRequest
     {
-        public int Id { get; set; } = id;
+        public int Id { get; set; }
     }
 }

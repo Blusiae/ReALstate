@@ -34,8 +34,8 @@ namespace ReALstate.API.Controllers
             return Ok(id);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteHouseCommand command)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteHouseCommand command)
         {
             await mediator.Send(command);
             return Ok();

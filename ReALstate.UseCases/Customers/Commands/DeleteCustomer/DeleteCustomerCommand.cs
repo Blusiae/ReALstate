@@ -2,8 +2,8 @@
 
 namespace ReALstate.UseCases.Customers.Commands.DeleteCustomer
 {
-    public class DeleteCustomerCommand(int id) : IRequest
+    public class DeleteCustomerCommand : IRequest
     {
-        public int Id { get; set; } = id;
+        public int Id { get; set; }
     }
 }
