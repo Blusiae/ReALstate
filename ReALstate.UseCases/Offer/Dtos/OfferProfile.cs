@@ -12,6 +12,7 @@ namespace ReALstate.UseCases.Offer.Dtos
         public OfferProfile()
         {
             CreateMap<Commands.CreateOffer.CreateOfferCommand, Domain.Entities.Offer>();
+            CreateMap<Domain.Entities.Offer, OfferDto>();
         }
     }
 }

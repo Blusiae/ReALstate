@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ReALstate.UseCases.Offer.Commands.CreateOffer;
 using ReALstate.UseCases.Offer.Commands.DeleteOffer;
+using ReALstate.UseCases.Offer.Dtos;
+using ReALstate.UseCases.Offer.Querries.GetAllOffers;
 
 namespace ReALstate.API.Controllers
 {
@@ -9,6 +11,13 @@ namespace ReALstate.API.Controllers
     [Route("/api/offer")]
     public class OfferController(IMediator mediator) : ControllerBase
     {
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<OfferDto>>> GetAll([FromQuery] GetAllOffersQuery query)
+        {
+            var offers = await mediator.Send(query);
+            return Ok(offers);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateOfferCommand command)
         {

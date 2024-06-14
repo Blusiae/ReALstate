@@ -4,7 +4,6 @@ namespace ReALstate.UseCases.Houses.Dtos
 {
     public class HouseDto
     {
-
         public int Id { get; set; }
         public string Description { get; set; } = default!;
         public string ImageUrl { get; set; } = default!;
