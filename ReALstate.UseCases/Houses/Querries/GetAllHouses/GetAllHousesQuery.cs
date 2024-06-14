@@ -3,8 +3,8 @@ using ReALstate.UseCases.Houses.Dtos;
 
 namespace ReALstate.UseCases.Houses.Querries.GetAllHouses
 {
-    public class GetAllHousesQuery(int ownerId) : IRequest<IEnumerable<HouseDto>>
+    public class GetAllHousesQuery: IRequest<IEnumerable<HouseDto>>
     {
-        public int OwnerId { get; set; } = ownerId;
+        public int OwnerId { get; set; }
     }
 }

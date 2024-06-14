@@ -5,7 +5,7 @@ using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Customers.Commands.CreateCustomer
 {
-    internal class CreateOwnerCommandHandler
+    internal class CreateCustomerCommandHandler
         (ICustomerRepository repository, IMapper mapper) : IRequestHandler<CreateCustomerCommand, int>
     {
 

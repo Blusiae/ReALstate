@@ -6,9 +6,10 @@ namespace ReALstate.API.Controllers
 {
     [ApiController]
     [Route("/api/offer")]
-    public class OfferController(Mediator mediator) : ControllerBase
+    public class OfferController(IMediator mediator) : ControllerBase
     {
-        public async Task<IActionResult> CreateOffer(CreateOfferCommand command)
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateOfferCommand command)
         {
             var id = await mediator.Send(command);
             return Ok(id);

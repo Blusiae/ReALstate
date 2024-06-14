@@ -10,6 +10,6 @@ namespace ReALstate.UseCases.Customers.Dtos
         public string LastName { get; set; } = default!;
         public string PhoneNumber { get; set; } = default!;
         public string Email { get; set; } = default!;
-        public List<Offer> Offers = new();
+        public List<Domain.Entities.Offer> Offers = new();
     }
 }
