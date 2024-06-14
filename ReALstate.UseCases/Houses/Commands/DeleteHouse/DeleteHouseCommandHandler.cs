@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using ReALstate.Domain.Entities;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Houses.Commands.DeleteHouse
@@ -12,7 +14,7 @@ namespace ReALstate.UseCases.Houses.Commands.DeleteHouse
             
             if (entity == null)
             {
-                throw new Exception("House not found");
+                throw new NotFoundException(nameof(House), request.Id.ToString());
             }
             await repository.Delete(entity);
 

@@ -1,3 +1,4 @@
+using ReALstate.API.Middlewares;
 using ReALstate.Infrastructure.Extensions;
 using ReALstate.UseCases.Extenstions;
 
@@ -12,10 +13,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddUseCases();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

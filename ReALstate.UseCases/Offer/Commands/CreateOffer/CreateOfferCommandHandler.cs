@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using ReALstate.Domain.Entities;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Offer.Commands.CreateOffer
@@ -17,8 +19,11 @@ namespace ReALstate.UseCases.Offer.Commands.CreateOffer
             var customer = await customerRepository.GetByIdAsync(request.CustomerId);
             var estate = await estateRepository.GetByIdAsync(request.EstateId);
 
-            if (customer == null || estate == null)
-                throw new Exception("Customer or Estate not found");
+            if (customer == null)
+                throw new NotFoundException(nameof(Customer), request.CustomerId.ToString());
+
+            if (estate == null)
+                throw new NotFoundException(nameof(Estate), request.EstateId.ToString());
 
             var offer = mapper.Map<Domain.Entities.Offer>(request);
 

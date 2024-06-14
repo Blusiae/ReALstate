@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Offer.Commands.DeleteOffer
@@ -12,7 +13,7 @@ namespace ReALstate.UseCases.Offer.Commands.DeleteOffer
 
             if (offer == null)
             {
-                throw new Exception("Offer not found");
+                throw new NotFoundException(nameof(Offer), request.Id.ToString());
             }
 
             await repository.Delete(offer);

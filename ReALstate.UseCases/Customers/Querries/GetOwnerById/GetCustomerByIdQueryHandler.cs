@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using ReALstate.Domain.Entities;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 using ReALstate.UseCases.Customers.Dtos;
 
@@ -15,7 +16,7 @@ namespace ReALstate.UseCases.Customers.Querries.GetOwnerById
             
             if (customer is null)
             {
-                throw new Exception("Customer not found");
+                throw new NotFoundException(nameof(Customer), request.Id.ToString());
             }
 
             var dto = mapper.Map<CustomerDto>(customer);

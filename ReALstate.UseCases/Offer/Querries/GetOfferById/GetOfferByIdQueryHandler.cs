@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using ReALstate.Domain.Entities;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 using ReALstate.UseCases.Offer.Dtos;
 
@@ -12,7 +14,7 @@ namespace ReALstate.UseCases.Offer.Querries.GetOfferById
             var offer = await repository.GetByIdAsync(request.Id);
             if (offer == null)
             {
-                throw new Exception("Offer not found");
+                throw new NotFoundException(nameof(Offer), request.Id.ToString());
             }
             return mapper.Map<OfferDto>(offer);
         }

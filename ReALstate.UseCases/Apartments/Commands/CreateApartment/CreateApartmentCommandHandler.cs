@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using ReALstate.Domain.Entities;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Apartments.Commands.CreateApartment
@@ -16,7 +17,7 @@ namespace ReALstate.UseCases.Apartments.Commands.CreateApartment
 
             if (owner == null)
             {
-                throw new Exception("Owner not found");
+                throw new NotFoundException(nameof(Customer) + "(owner)", request.OwnerId.ToString());
             }
             var apartment = mapper.Map<Apartment>(request);
             

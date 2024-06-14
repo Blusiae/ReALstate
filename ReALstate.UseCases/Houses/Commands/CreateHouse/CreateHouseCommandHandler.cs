@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using ReALstate.Domain.Entities;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Houses.Commands.CreateHouse
@@ -16,8 +17,8 @@ namespace ReALstate.UseCases.Houses.Commands.CreateHouse
             
             if (owner == null)
             {
-                throw new Exception("Owner not found");
-            
+                throw new NotFoundException(nameof(Customer) + "(owner)", request.OwnerId.ToString());
+
             }
             
             var house = mapper.Map<House>(request);

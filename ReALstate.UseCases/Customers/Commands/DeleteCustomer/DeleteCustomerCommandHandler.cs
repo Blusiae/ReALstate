@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using ReALstate.Domain.Entities;
+using ReALstate.Domain.Exceptions;
 using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Customers.Commands.DeleteCustomer
@@ -11,7 +13,7 @@ namespace ReALstate.UseCases.Customers.Commands.DeleteCustomer
 
             if (customer is null)
             {
-                throw new Exception("Customer not found");
+                throw new NotFoundException(nameof(Customer), request.Id.ToString());
             }
 
             await repository.Delete(customer);
