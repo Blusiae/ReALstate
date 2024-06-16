@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace ReALstate.App
+namespace ReALstate.App.Platforms.MacCatalyst
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate
