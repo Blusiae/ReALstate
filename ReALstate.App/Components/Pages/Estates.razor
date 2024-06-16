@@ -1,4 +1,5 @@
 ﻿@page "/estates/{filter?}"
+@inject NavigationManager _nav;
 
 <MudGrid Class="my-3" Spacing="3">
     @for(int i = 0; i < 7; i++)
@@ -35,7 +36,7 @@
                     <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary">Details</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@(() => _nav.NavigateTo("/estate/0"))">Details</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
