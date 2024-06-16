@@ -2,11 +2,16 @@
     <MudText Typo="Typo.h6">ReALstate</MudText>
 </MudDrawerHeader>
 <MudNavMenu>
-    <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
-    <MudNavLink Href="/" Match="NavLinkMatch.Prefix">Servers</MudNavLink>
-    <MudNavGroup Title="Settings" Expanded="true">
-        <MudNavLink Href="/" Match="NavLinkMatch.Prefix">Users</MudNavLink>
-        <MudNavLink Href="/" Match="NavLinkMatch.Prefix">Security</MudNavLink>
+    <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
+    <MudNavGroup Icon="@Icons.Material.Filled.Home" Title="Estates">
+        <MudNavLink Href="/estates" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.LocationCity">All</MudNavLink>
+        <MudNavLink Href="/estates/activeOnly" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.HourglassFull">Active</MudNavLink>
+        <MudNavLink Href="/estates/soldOnly" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AttachMoney">Sold</MudNavLink>
     </MudNavGroup>
-    <MudNavLink Href="/" Match="NavLinkMatch.Prefix">About</MudNavLink>
+    <MudNavGroup Icon="@Icons.Material.Filled.AttachMoney" Title="Offers">
+        <MudNavLink Href="/offers" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Workspaces">All</MudNavLink>
+        <MudNavLink Href="/offers/activeOnly" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.HourglassFull">Active</MudNavLink>
+        <MudNavLink Href="/offers/endedOnly" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Check">Ended</MudNavLink>
+    </MudNavGroup>
+    <MudIconButton Href="/settings" Icon="@Icons.Material.Filled.Settings" />
 </MudNavMenu>
