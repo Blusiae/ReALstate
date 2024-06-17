@@ -1,6 +1,11 @@
 @ReALstate.API_HostAddress = http://localhost:5291
 
-GET {{ReALstate.API_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{ReALstate.API_HostAddress}}/api/offer
+Content-Type: application/json
 
+{
+  "customerId": 0,
+  "estateId": 0,
+  "proposedPrice": 0
+}
 ###
