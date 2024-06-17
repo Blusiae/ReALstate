@@ -3,8 +3,8 @@
     public enum State
     {
         New,
-        Good,
-        Bad
-        // ??? copilot dal 
+        Great,
+        Bad,
+        RenovationNeeded
     }
 }
