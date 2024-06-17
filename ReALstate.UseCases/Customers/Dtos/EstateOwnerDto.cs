@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReALstate.UseCases.EstateOwners.Commands.DeleteOwner
+namespace ReALstate.UseCases.EstateOwners.Dtos
 {
-    internal class DeleteOwnerCommand
+    public class EstateOwnerDto
     {
+        
     }
 }

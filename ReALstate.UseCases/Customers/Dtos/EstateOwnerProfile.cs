@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using ReALstate.Domain.Entities;
-using ReALstate.UseCases.EstateOwners.Commands.CreateOwner;
+using ReALstate.UseCases.Customers.Commands.CreateCustomer;
 
-namespace ReALstate.UseCases.EstateOwners.Dtos
+namespace ReALstate.UseCases.Customers.Dtos
 {
     internal class EstateOwnerProfile : Profile
     {
         public EstateOwnerProfile()
         {
-            CreateMap<CreateOwnerCommand, EstateOwner>();
+            CreateMap<CreateCustomerCommand, Customer>();
         }
     }
 }

@@ -2,22 +2,26 @@
 
 namespace ReALstate.Domain.Entities
 {
-    public class Estate
+    public abstract class Estate
     {
         public int Id { get; set; }
         public string Description { get; set; } = default!;
-        public decimal LandAreaInSquareMeters { get; set; }
-        public decimal? AverageRoomHeightInMeters { get; set; }
-        public decimal PriceFinal { get; set; }
-        public decimal PriceCalculated { get; set; }
-        public int NumberOfRooms { get; set; }
-        public int? SuggestedTenantsQuantity { get; set; }
-        public int? YearBuilt { get; set; }
-        public Address Address { get; set; } = new();
-        public string? EstateType { get; set; }
-        public bool IsFurnished { get; set; }
-        public string? ImageUrl { get; set; }
-        public EstateOwner? Owner { get; set; } = default!;
-        public int? OwnerId { get; set; } = default!;
+        public string ImageUrl { get; set; } = default!;
+        public double MetersSquared { get; set; }
+        public double Value { get; set; }
+        public State State { get; set; } = default!;
+        public Address Address { get; set; } = default!;
+        public Customer Owner { get; set; } = default!;
+        public int OwnerId { get; set; }
+        public DateTime? YearBuilt { get; set; }
+
+        //Additional information
+        public int BedroomsCount { get; set; }
+        public int BathroomsCount { get; set; }
+        public bool IsFurnushed { get; set; }    
+        public bool HasBalcony { get; set; }
+        public bool HasAirConditioning { get; set; }
+        public bool HasHeating { get; set; }
+        
     }
 }
