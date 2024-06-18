@@ -1,0 +1,25 @@
+﻿<MudDialog>
+    <DialogContent>
+        <!-- form -->
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Close</MudButton>
+        <MudButton OnClick="Submit">Submit</MudButton>
+
+    </DialogActions>
+</MudDialog>
+
+@code{
+    [CascadingParameter]
+    MudDialogInstance Dialog { get; set; } = new();
+
+    private void Cancel()
+    {
+        Dialog.Cancel();
+    }
+
+    private void Submit()
+    {
+        Dialog.Close(DialogResult.Ok(true));
+    }
+}
