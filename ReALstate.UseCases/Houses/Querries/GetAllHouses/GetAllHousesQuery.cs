@@ -7,5 +7,6 @@ namespace ReALstate.UseCases.Houses.Querries.GetAllHouses
     public class GetAllHousesQuery: IRequest<IEnumerable<HouseDto>>
     {
         public int OwnerId { get; set; }
+        public Guid ResourceOwnerId { get; set; }
     }
 }

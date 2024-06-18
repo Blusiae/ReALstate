@@ -12,8 +12,10 @@ namespace ReALstate.UseCases.Offer.Querries.GetAllOffers
         public async Task<IEnumerable<OfferDto>> Handle(GetAllOffersQuery request, CancellationToken cancellationToken)
         {
             var offers = await repository.GetAllAsync();
+            
+            offers = offers.Where(a => a.ResourceOwnerId == request.ResourceOwnerId);
 
-            if(request.CustomerId != 0)
+            if (request.CustomerId != 0)
             {
                 offers = offers.Where(a => a.CustomerId == request.CustomerId);
             }

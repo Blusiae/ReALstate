@@ -15,9 +15,9 @@ namespace ReALstate.API.Controllers
     {
         // The GetAll method is responsible for returning all users.
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserDto>>> GetAll([FromQuery] GetAllUsersQuery query)
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetAll()
         {
-            var dtos = await mediator.Send(query);
+            var dtos = await mediator.Send(new GetAllUsersQuery());
             return Ok(dtos);
         }
 

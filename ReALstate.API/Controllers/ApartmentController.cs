@@ -24,8 +24,9 @@ namespace ReALstate.API.Controllers
 
         // The GetById method is responsible for returning a specific apartment by its ID.
         [HttpGet("{Id}")]
-        public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] GetApartmentByIdQuery query)
+        public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] GetApartmentByIdQuery query, [FromQuery] Guid resourceOwnerId)
         {
+            query.ResourceOwnerId = resourceOwnerId;
             var apartment = await mediator.Send(query);
             return Ok(apartment);
         }
@@ -39,8 +40,8 @@ namespace ReALstate.API.Controllers
         }
 
         // The Delete method is responsible for deleting an apartment by its ID.
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] DeleteApartmentCommand command)
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromQuery] DeleteApartmentCommand command)
         {
             await mediator.Send(command);
             return Ok();

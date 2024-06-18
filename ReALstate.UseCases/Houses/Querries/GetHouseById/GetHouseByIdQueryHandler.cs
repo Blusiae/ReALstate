@@ -19,6 +19,14 @@ namespace ReALstate.UseCases.Houses.Querries.GetHouseById
             {
                 throw new NotFoundException(nameof(House), request.Id.ToString());
             }
+
+            entity = entity.ResourceOwnerId == request.ResourceOwnerId ? entity : null;
+
+            if (entity == null)
+            {
+                throw new UnauthorizedAccessException();
+            }
+
             var dto = mapper.Map<HouseDto>(entity);
             return dto;
         }

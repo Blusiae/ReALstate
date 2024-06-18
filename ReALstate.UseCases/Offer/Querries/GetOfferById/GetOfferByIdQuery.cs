@@ -7,5 +7,6 @@ namespace ReALstate.UseCases.Offer.Querries.GetOfferById
     public class GetOfferByIdQuery : IRequest<OfferDto>
     {
         public int Id { get; set; }
+        public Guid ResourceOwnerId { get; set; }
     }
 }

@@ -18,6 +18,12 @@ namespace ReALstate.UseCases.Apartments.Commands.DeleteApartment
             {
                 throw new NotFoundException(nameof(Apartment), request.Id.ToString());
             }
+
+            if(entity.ResourceOwnerId != request.ResourceOwnerId)
+            {
+                throw new UnauthorizedAccessException();
+            }
+            
             await repository.Delete(entity);
         }
     }

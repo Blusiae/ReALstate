@@ -20,6 +20,7 @@ namespace ReALstate.UseCases.Apartments.Querries.GetAllApartments
 
             if (request.OwnerId != 0)
             {
+                dtos = dtos.Where(d => d.ResourceOwnerId == request.ResourceOwnerId);
                 dtos = dtos.Where(a => a.OwnerId == request.OwnerId);
             }
             return dtos;

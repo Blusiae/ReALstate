@@ -21,6 +21,13 @@ namespace ReALstate.UseCases.Customers.Querries.GetOwnerById
                 throw new NotFoundException(nameof(Customer), request.Id.ToString());
             }
 
+            customer = customer.ResourceOwnerId == request.ResourceOwnerId ? customer : null;
+
+            if (customer is null)
+            {
+                throw new UnauthorizedAccessException();
+            }
+
             var dto = mapper.Map<CustomerDto>(customer);
 
             return dto;

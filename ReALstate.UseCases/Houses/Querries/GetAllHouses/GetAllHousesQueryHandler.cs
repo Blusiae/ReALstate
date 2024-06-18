@@ -14,6 +14,8 @@ namespace ReALstate.UseCases.Houses.Querries.GetAllHouses
         {
             var entities = await repository.GetAllAsync();
 
+            entities = entities.Where(c => c.ResourceOwnerId == request.ResourceOwnerId);
+
             var dtos = mapper.Map<IEnumerable<HouseDto>>(entities);
 
             if (request.OwnerId != 0)

@@ -6,6 +6,7 @@ namespace ReALstate.UseCases.Customers.Dtos
     public class CustomerDto
     {
         public int Id { get; set; }
+        public Guid? ResourceOwnerId { get; set; }
         public List<Estate> Estates = new();
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;

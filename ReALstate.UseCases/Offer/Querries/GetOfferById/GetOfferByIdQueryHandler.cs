@@ -17,6 +17,14 @@ namespace ReALstate.UseCases.Offer.Querries.GetOfferById
             {
                 throw new NotFoundException(nameof(Offer), request.Id.ToString());
             }
+
+            offer = offer.ResourceOwnerId == request.ResourceOwnerId ? offer : null;
+
+            if (offer == null)
+            {
+                throw new UnauthorizedAccessException();
+            }
+
             return mapper.Map<OfferDto>(offer);
         }
     }
