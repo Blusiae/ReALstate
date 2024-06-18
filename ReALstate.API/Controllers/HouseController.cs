@@ -26,8 +26,8 @@ namespace ReALstate.API.Controllers
         [HttpGet("{Id}")]
         public async Task<ActionResult<HouseDto>> GetById([FromRoute] GetHouseByIdQuery query)
         {
-
-            return await mediator.Send(query);
+            var dto = await mediator.Send(query);
+            return Ok(dto);
         }
 
         // The Create method is responsible for creating a new house.
