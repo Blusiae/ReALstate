@@ -65,10 +65,16 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
         <PackageReference Include="MudBlazor" Version="6.19.1" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+        <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Resources\Images\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ReALstate.Domain\ReALstate.Domain.csproj" />
     </ItemGroup>
 
 </Project>
