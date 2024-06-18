@@ -73,8 +73,4 @@
       <Folder Include="Resources\Images\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\ReALstate.Domain\ReALstate.Domain.csproj" />
-    </ItemGroup>
-
 </Project>
