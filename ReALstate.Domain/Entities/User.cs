@@ -2,15 +2,19 @@
 
 namespace ReALstate.Domain.Entities
 {
-    // The User class is responsible for defining the attributes of a user. It inherits from the IdentityUser class.
-    // IdentityUser is a class provided by ASP.NET Core Identity that contains the basic properties of a user, such as username and password.
-    public class User : IdentityUser
+    // The User class is responsible for defining the attributes of a user. 
+    // It determines who owns data in the database and who can access it.
+    public class User
     {
-        public bool IsActive { get; set; }
-        public DateOnly? DateOfBirth { get; set; }
-        public DateOnly JoinedDate { get; set; }
+        public Guid Id { get; set; } = default!;
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;
+        public string Email { get; set; } = default!;
+
+        public virtual List<Estate> Estates { get; set; } = new();
+        public virtual List<Offer> Offers { get; set; } = new();
+        public virtual List<Customer> Customers { get; set; } = new();
+
     }
 
 }
