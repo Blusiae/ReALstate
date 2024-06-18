@@ -8,12 +8,13 @@ using ReALstate.UseCases.Houses.Querries.GetHouseById;
 
 namespace ReALstate.API.Controllers
 {
+    // The HouseController class is responsible for handling requests related to houses.
     [ApiController]
     [Route("api/house")]
     public class HouseController
         (IMediator mediator) : ControllerBase
     {
-       
+        // The GetAll method is responsible for returning all houses.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<HouseDto>>> GetAll([FromQuery] GetAllHousesQuery query)
         {
@@ -21,6 +22,7 @@ namespace ReALstate.API.Controllers
             return Ok(dtos);
         }
 
+        // The GetById method is responsible for returning a specific house by its ID.
         [HttpGet("{Id}")]
         public async Task<ActionResult<HouseDto>> GetById([FromRoute] GetHouseByIdQuery query)
         {
@@ -28,6 +30,7 @@ namespace ReALstate.API.Controllers
             return await mediator.Send(query);
         }
 
+        // The Create method is responsible for creating a new house.
         [HttpPost]
         public async Task<IActionResult> Create(CreateHouseCommand command)
         {
@@ -35,6 +38,7 @@ namespace ReALstate.API.Controllers
             return Ok(id);
         }
 
+        // The Delete method is responsible for deleting a house by its ID.
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete([FromRoute] DeleteHouseCommand command)
         {

@@ -1,18 +1,15 @@
 ﻿using AutoMapper;
 using ReALstate.Domain.Entities;
 using ReALstate.UseCases.Houses.Commands.CreateHouse;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReALstate.UseCases.Houses.Dtos
 {
+    // This class determines how the data is mapped between the application and the database
     internal class HouseProfile : Profile
     {
         public HouseProfile()
         {
+            // Mapping the CreateHouseCommand to the House entity
             CreateMap<CreateHouseCommand, House>()
                 .ForMember(a => a.Address, opt => opt.MapFrom(src => new Address
                 {
@@ -24,6 +21,7 @@ namespace ReALstate.UseCases.Houses.Dtos
                     ApartmentNumber = src.ApartmentNumber
                 }));
 
+            // Mapping the House entity to the HouseDto
             CreateMap<House, HouseDto>()
                 .ForMember(dto => dto.City, opt => opt.MapFrom(a => a.Address.City))
                 .ForMember(dto => dto.Voivodeship, opt => opt.MapFrom(a => a.Address.Voivodeship))

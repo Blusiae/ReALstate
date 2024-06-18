@@ -5,6 +5,7 @@ using ReALstate.Infrastructure.DbContext;
 
 namespace ReALstate.Infrastructure.Repositories
 {
+    // ApartmentRepository implements IApartmentRepository interface and it is responsible for the CRUD operations of the Apartment entity. EstateDbContext is injected in the constructor
     internal class ApartmentRepository(EstatesDbContext dbContext) : IApartmentRepository
     {
         public async Task<int> Create(Apartment entity)

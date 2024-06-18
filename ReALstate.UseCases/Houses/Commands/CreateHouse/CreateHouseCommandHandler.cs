@@ -6,11 +6,13 @@ using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Houses.Commands.CreateHouse
 {
+    // This class is responsible for handling the CreateHouseCommand
     internal class CreateHouseCommandHandler
         (IHouseRepository repository,
         ICustomerRepository customerRepository,
         IMapper mapper): IRequestHandler<CreateHouseCommand, int>
     {
+        // This method is responsible for creating a new house
         public async Task<int> Handle(CreateHouseCommand request, CancellationToken cancellationToken)
         {
             var owner = await customerRepository.GetByIdAsync(request.OwnerId);

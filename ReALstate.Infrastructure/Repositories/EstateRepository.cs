@@ -5,6 +5,7 @@ using ReALstate.Infrastructure.DbContext;
 
 namespace ReALstate.Infrastructure.Repositories
 {
+    // EstateRepository implements IEstateRepository interface and it is responsible for the CRUD operations of the Estate entity. EstateDbContext is injected in the constructor
     internal class EstateRepository(EstatesDbContext dbContext) : IEstateRepository
     {
 

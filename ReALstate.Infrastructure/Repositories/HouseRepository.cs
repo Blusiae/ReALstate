@@ -5,6 +5,7 @@ using ReALstate.Infrastructure.DbContext;
 
 namespace ReALstate.Infrastructure.Repositories
 {
+    // HouseRepository implements IHouseRepository interface and it is responsible for the CRUD operations of the House entity. EstateDbContext is injected in the constructor
     internal class HouseRepository
         (EstatesDbContext dbContext): IHouseRepository
     {

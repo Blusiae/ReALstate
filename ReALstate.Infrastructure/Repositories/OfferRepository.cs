@@ -5,6 +5,7 @@ using ReALstate.Infrastructure.DbContext;
 
 namespace ReALstate.Infrastructure.Repositories
 {
+    // OfferRepository implements IOfferRepository interface and it is responsible for the CRUD operations of the Offer entity. EstateDbContext is injected in the constructor
     internal class OfferRepository(EstatesDbContext dbContext) : IOfferRepository
     {
         public async Task<int> Create(Offer entity)

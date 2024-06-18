@@ -5,8 +5,10 @@ using ReALstate.UseCases.Offer.Dtos;
 
 namespace ReALstate.UseCases.Offer.Querries.GetAllOffers
 {
+    // This class is responsible for handling the GetAllOffersQuery and returning the result
     internal class GetAllOffersQueryHandler(IOfferRepository repository, IMapper mapper) : IRequestHandler<GetAllOffersQuery, IEnumerable<OfferDto>>
     {
+        // Handle method is responsible for handling the request and returning the results as an IEnumerable of OfferDto
         public async Task<IEnumerable<OfferDto>> Handle(GetAllOffersQuery request, CancellationToken cancellationToken)
         {
             var offers = await repository.GetAllAsync();

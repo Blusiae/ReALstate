@@ -1,12 +1,8 @@
 ﻿using ReALstate.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReALstate.UseCases.Apartments.Dtos
 {
+    // This class is used to transfer data between the application and the database
     public class ApartmentDto
     {
         public int Id { get; set; }

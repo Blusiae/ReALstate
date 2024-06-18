@@ -4,15 +4,17 @@ using ReALstate.Domain.Entities;
 
 namespace ReALstate.Infrastructure.DbContext
 {
+    // DbContext class for the application database 
     internal class EstatesDbContext(DbContextOptions options) : IdentityDbContext<User>(options)
     {
+        // DbSet properties for the entities determining the tables in the database
         internal DbSet<Estate> Estates { get; set; }
         internal DbSet<House> Houses { get; set; }
         internal DbSet<Apartment> Apartments { get; set; }
         internal DbSet<Customer> Customers { get; set; }
         internal DbSet<Offer> Offers { get; set; }
 
-
+        // Overriding the OnModelCreating method to configure the relationships between the entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

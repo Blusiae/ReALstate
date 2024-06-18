@@ -7,9 +7,11 @@ using ReALstate.UseCases.Customers.Dtos;
 
 namespace ReALstate.UseCases.Customers.Querries.GetOwnerById
 {
+    // This class is responsible for handling the GetCustomerByIdQuery and returning the results. It implements IRequestHandler interface from MediatR.
     internal class GetCustomerByIdQueryHandler
         (ICustomerRepository repository, IMapper mapper) : IRequestHandler<GetCustomerByIdQuery, CustomerDto>
     {
+        // The Handle method is responsible returning the results.
         public async Task<CustomerDto> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
             var customer = await repository.GetByIdAsync(request.Id);

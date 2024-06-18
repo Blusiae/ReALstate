@@ -5,8 +5,10 @@ using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Customers.Commands.DeleteCustomer
 {
+    // DeleteCustomerCommandHandler is a class that handles the DeleteCustomerCommand. It implements IRequestHandler interface from MediatR library.
     internal class DeleteCustomerCommandHandler(ICustomerRepository repository) : IRequestHandler<DeleteCustomerCommand>
     {
+        // Handle method is used to delete the customer from the database.
         public async Task Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             var customer = await repository.GetByIdAsync(request.Id);

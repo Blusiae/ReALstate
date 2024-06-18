@@ -3,6 +3,8 @@ using ReALstate.Domain.Entities;
 
 namespace ReALstate.UseCases.Apartments.Commands.CreateApartment
 {
+    // CreateApartmentCommand is a class that will be used to create a new apartment.
+    // It will be used in the CreateApartmentHandler class. It inherits from IRequest<int> interface, implementing CQRS pattern. <int> is the return type of the Handle method.
     public class CreateApartmentCommand : IRequest<int>
     {
         public string Description { get; set; } = default!;

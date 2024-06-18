@@ -2,11 +2,14 @@
 
 namespace ReALstate.UseCases.Apartments.Commands.CreateApartment
 {
+    // CreateApartmentCommandValidator is a class that will be used to validate the CreateApartmentCommand.
+    // It inherits from AbstractValidator<CreateApartmentCommand> class, implementing FluentValidation library.
     internal class CreateApartmentCommandValidator : AbstractValidator<CreateApartmentCommand>
     {
         //TODO: set more reasonable values for the fields 
         public CreateApartmentCommandValidator() 
         {
+            // RuleFor is a method that is used to set validation rules for the CreateApartmentCommand.
             RuleFor(a => a.Description).NotEmpty();
             RuleFor(a => a.ImageUrl).NotEmpty();
             RuleFor(a => a.MetersSquared).GreaterThan(0);

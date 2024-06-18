@@ -1,14 +1,13 @@
 ﻿using FluentValidation;
-using System.Data;
 
 namespace ReALstate.UseCases.Houses.Commands.CreateHouse
 {
+    // CreateHouseCommandValidator class inherits from AbstractValidator<CreateHouseCommand> and it is used to validate the CreateHouseCommand object.
     internal class CreateHouseCommandValidator : AbstractValidator<CreateHouseCommand>
     {
         public CreateHouseCommandValidator()
         {
-            // replace "a" with "h" in RuleFor
-            // replace "a" with "h" in RuleFor
+            // RuleFor method is used to define the validation rules for the CreateHouseCommand object.
             RuleFor(h => h.Description).NotEmpty();
             RuleFor(h => h.ImageUrl).NotEmpty();
             RuleFor(h => h.MetersSquared).GreaterThan(0);

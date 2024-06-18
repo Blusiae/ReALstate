@@ -1,5 +1,6 @@
 ﻿namespace ReALstate.Domain.Entities
 {
+    // The Offer class is responsible for defining the attributes of an offer. It contains the proposed price for an estate and the customer who made the offer.
     public class Offer
     {
         public int Id { get; set; }

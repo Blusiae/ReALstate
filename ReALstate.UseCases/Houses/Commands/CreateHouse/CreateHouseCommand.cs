@@ -3,6 +3,7 @@ using ReALstate.Domain.Entities;
 
 namespace ReALstate.UseCases.Houses.Commands.CreateHouse
 {
+    // Command to create a house
     public class CreateHouseCommand : IRequest<int>
     {
         public string Description { get; set; } = default!;

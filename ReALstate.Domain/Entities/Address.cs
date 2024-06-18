@@ -1,5 +1,6 @@
 ﻿namespace ReALstate.Domain.Entities
 {
+    // The Address class is responsible for storing information about the address of a property.
     public class Address
     {
         public string City { get; set; } = default!;

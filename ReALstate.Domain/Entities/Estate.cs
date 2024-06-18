@@ -1,7 +1,6 @@
-﻿using System.Net;
-
-namespace ReALstate.Domain.Entities
+﻿namespace ReALstate.Domain.Entities
 {
+    // The Estate class is responsible for defining the attributes of an estate. It is an abstract class that is inherited by the Apartment and House classes.
     public abstract class Estate
     {
         public int Id { get; set; }

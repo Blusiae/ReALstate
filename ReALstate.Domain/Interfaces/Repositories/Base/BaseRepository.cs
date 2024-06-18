@@ -1,7 +1,6 @@
-﻿using ReALstate.Domain.Entities;
-
-namespace ReALstate.Domain.Interfaces.Repositories.Base
+﻿namespace ReALstate.Domain.Interfaces.Repositories.Base
 {
+    // Base Repository Interface for all Repositories. Contains basic actions for all entities. Its inherited by all other repositories.
     public interface IBaseRepository <T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync();

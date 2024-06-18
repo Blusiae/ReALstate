@@ -5,6 +5,7 @@ using ReALstate.Infrastructure.DbContext;
 
 namespace ReALstate.Infrastructure.Repositories
 {
+    // CustomerRepository implements ICustomerRepository interface and it is responsible for the CRUD operations of the Customer entity. EstateDbContext is injected in the constructor
     internal class CustomerRepository(EstatesDbContext dbContext) : ICustomerRepository
     {
         public async Task<int> Create(Customer customer)

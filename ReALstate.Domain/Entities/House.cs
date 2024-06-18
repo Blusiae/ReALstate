@@ -1,5 +1,6 @@
 ﻿namespace ReALstate.Domain.Entities
 {
+    // The House class is responsible for defining the attributes of a house. It inherits from the Estate class.
     public class House : Estate
     {
         public bool HasGarage { get; set; }

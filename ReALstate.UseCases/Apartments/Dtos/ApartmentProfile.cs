@@ -4,10 +4,12 @@ using ReALstate.UseCases.Apartments.Commands.CreateApartment;
 
 namespace ReALstate.UseCases.Apartments.Dtos
 {
+    // This class determines how the data is mapped between the application and the database. It inherits from the Profile class in AutoMapper library. 
     internal class ApartmentProfile : Profile
     {
         public ApartmentProfile()
         {
+            // CreateMap method is used to map the properties of the source object to the destination object.
             CreateMap<CreateApartmentCommand, Apartment>()
                 .ForMember(a => a.Address, opt => opt.MapFrom(src => new Address
                 {

@@ -2,6 +2,7 @@
 
 namespace ReALstate.UseCases.Houses.Dtos
 {
+    // This class is used to transfer data between the application and the database
     public class HouseDto
     {
         public int Id { get; set; }

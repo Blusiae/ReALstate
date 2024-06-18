@@ -2,6 +2,7 @@
 
 namespace ReALstate.UseCases.Customers.Commands.CreateCustomer
 {
+    // CreateCustomerCommand class is for CQRS pattern to create a new customer.
     public class CreateCustomerCommand : IRequest<int>
     {
         public string FirstName { get; set; } = default!;

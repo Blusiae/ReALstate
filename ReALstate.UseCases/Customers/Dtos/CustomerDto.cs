@@ -2,6 +2,7 @@
 
 namespace ReALstate.UseCases.Customers.Dtos
 {
+    // This class is used to transfer data between the application and the database
     public class CustomerDto
     {
         public int Id { get; set; }

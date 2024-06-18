@@ -11,8 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add segments of the projects from extensions classes
 builder.Services.AddUseCases();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+// Add error-handling middleware
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 var app = builder.Build();

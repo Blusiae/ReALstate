@@ -8,11 +8,13 @@ using ReALstate.UseCases.Apartments.Querries.GetApartmentById;
 
 namespace ReALstate.API.Controllers
 {
+    // The ApartmentController class is responsible for handling requests related to apartments.
     [ApiController]
     [Route("/api/apartment")]
     public class ApartmentController
         (IMediator mediator): ControllerBase
     {
+        // The GetAll method is responsible for returning all apartments.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ApartmentDto>>> GetAll([FromQuery] GetAllApartmentsQuery query)
         {
@@ -20,6 +22,7 @@ namespace ReALstate.API.Controllers
             return Ok(apartments);
         }
 
+        // The GetById method is responsible for returning a specific apartment by its ID.
         [HttpGet("{Id}")]
         public async Task<ActionResult<ApartmentDto>> GetById([FromRoute] GetApartmentByIdQuery query)
         {
@@ -27,6 +30,7 @@ namespace ReALstate.API.Controllers
             return Ok(apartment);
         }
 
+        // The Create method is responsible for creating a new apartment.
         [HttpPost]
         public async Task<IActionResult> Create(CreateApartmentCommand command)
         {
@@ -34,6 +38,7 @@ namespace ReALstate.API.Controllers
             return Ok(id);
         }
 
+        // The Delete method is responsible for deleting an apartment by its ID.
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete([FromRoute] DeleteApartmentCommand command)
         {

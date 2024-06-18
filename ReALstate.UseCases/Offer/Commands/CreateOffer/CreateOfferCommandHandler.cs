@@ -6,12 +6,14 @@ using ReALstate.Domain.Interfaces.Repositories;
 
 namespace ReALstate.UseCases.Offer.Commands.CreateOffer
 {
+    // CreateOfferCommandHandler is a class that implements IRequestHandler interface with CreateOfferCommand as request and int as response
     internal class CreateOfferCommandHandler
         (IOfferRepository offerRepository, 
         ICustomerRepository customerRepository, 
         IEstateRepository estateRepository, 
         IMapper mapper) : IRequestHandler<CreateOfferCommand, int>
     {
+        // Handle method is for handling the command and creating the offer and returning the id of the created offer
         public async Task<int> Handle(CreateOfferCommand request, CancellationToken cancellationToken)
         {
 
