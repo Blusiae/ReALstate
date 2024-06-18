@@ -18,7 +18,7 @@ namespace ReALstate.Domain.Entities
         //Additional information
         public int BedroomsCount { get; set; }
         public int BathroomsCount { get; set; }
-        public bool IsFurnushed { get; set; }    
+        public bool IsFurnished { get; set; }    
         public bool HasBalcony { get; set; }
         public bool HasAirConditioning { get; set; }
         public bool HasHeating { get; set; }
