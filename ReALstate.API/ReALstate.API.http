@@ -1,0 +1,11 @@
+@ReALstate.API_HostAddress = http://localhost:5291
+
+POST {{ReALstate.API_HostAddress}}/api/offer
+Content-Type: application/json
+
+{
+  "customerId": 0,
+  "estateId": 0,
+  "proposedPrice": 0
+}
+###
