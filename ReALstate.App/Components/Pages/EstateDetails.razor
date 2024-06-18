@@ -1,0 +1,112 @@
+﻿@page "/estate/{id:int}"
+<MudGrid Class="my-3">
+    <MudItem xs="12" md="4">
+        <MudImage Fluid="true" Src="/House-default.png"></MudImage>
+    </MudItem>
+    <MudItem xs="12" md="8">
+        <MudPaper Class="pa-5 mud-height-full">
+            <MudText Typo="Typo.h3">Grocery St. 5</MudText>
+            <MudText Typo="Typo.h4" Class="my-3">Address & Details</MudText>
+            <MudContainer Class="d-inline-flex gap-12">
+                <MudText Typo="Typo.body1">
+                    <b>Country: </b> Poland <br />
+                    <b>City: </b> Warsaw <br />
+                    <b>Street: </b> Grocery St. 5 <br />
+                    <b>Postal code: </b> 00-001 <br />
+                </MudText>
+                <MudText Typo="Typo.body1" Class="my-3">
+                    <b>Meters squared: </b> 100 <br />
+                    <b>Bedrooms: </b> 3 <br />
+                    <b>Bathrooms: </b> 2  <br />
+                </MudText>
+            </MudContainer>
+            <MudDivider Class="my-3" />
+            <MudText Typo="Typo.h4" Class="my-3">Owner's details</MudText>
+            <MudText Typo="Typo.body1">
+                <b>Firstname: </b> Jan <br />
+                <b>Lastname: </b> Kowalski <br />
+                <b>Email address: </b> jan.kowalski@mail.com <br />
+                <b>Phone number </b> +00 000 000 000 <br />
+            </MudText>
+            <MudDivider Class="my-3" />
+            <MudText Typo="Typo.h3" Align="Align.Center" Class="my-1">1 000 000 zł</MudText>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" md="4">
+        <MudPaper Class="pa-5 mud-height-full">
+            <MudStack Row="true">
+                <MudIcon Icon="@Icons.Material.Filled.Rule" Size="Size.Large" />
+                <MudText Typo="Typo.h4">Additional details</MudText>
+            </MudStack>
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Furnished</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Balcony</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Air conditioning</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.DoNotDisturb" Color="Color.Error" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Heating</MudText>
+                <MudIcon Icon="@Icons.Material.Filled.DoNotDisturb" Color="Color.Error" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Alarm</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Garage</MudText>
+                <MudIcon Icon="@Icons.Material.Filled.DoNotDisturb" Color="Color.Error" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Garden</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Pool</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Terrace</MudText>
+                <MudIcon Icon="@Icons.Material.Filled.DoNotDisturb" Color="Color.Error" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Basement</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" />
+                </MudStack>
+                <MudDivider />
+                <MudStack Row="true">
+                    <MudText Typo="Typo.body1">Attic</MudText>
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" />
+                </MudStack>
+           </MudPaper>
+    </MudItem>
+    <MudItem xs="12" md="8">
+        <MudPaper Class="pa-5 mud-height-full">
+            <MudStack Row="true">
+                <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" />
+                <MudText Typo="Typo.h4">Offers</MudText>
+            </MudStack>
+
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+}

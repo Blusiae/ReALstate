@@ -1,0 +1,74 @@
+﻿@page "/offers/{filter?}"
+@using System.Globalization
+
+
+<MudGrid Class="my-3" Spacing="3">
+    @for (int i = 0; i < 11; i++)
+    {
+        var random = new Random().Next(0, 2);
+        var random2 = new Random().Next(0, 2);
+        var price = new Random().Next(100000, 1000000000);
+
+        @if (random == 0 && Filter == "activeOnly" || random != 0 && Filter == "endedOnly")
+        {
+            continue;
+        }
+        <MudItem xs="12" md="4" lg="3" xl="2">
+            <MudCard>
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">Grocery St. 5</MudText>
+                        @if (random == 0 && Filter != "activeOnly")
+                        {
+                            <MudChip Variant="Variant.Text" Color="Color.Error">Ended</MudChip>
+                            if(random2 == 0)
+                            {
+                                <MudChip Variant="Variant.Text" Color="Color.Error">Not Sold</MudChip>
+                            }
+                            else
+                            {
+                                <MudChip Variant="Variant.Text" Color="Color.Success">Sold</MudChip>
+                            }
+                        }
+                        else if (Filter != "endedOnly")
+                        {
+                            <MudChip Variant="Variant.Text" Color="Color.Success">Active</MudChip>
+                        }
+                    </CardHeaderContent>
+                    <!-- <CardHeaderActions>
+                        <MudMenu Icon="Icons.Material.Filled.MoreVert" Color="Color.Default" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
+                            <MudMenuItem>Edit</MudMenuItem>
+                            <MudMenuItem>Delete</MudMenuItem>
+                        </MudMenu>
+                    </CardHeaderActions> -->
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">@price.ToString("C", CultureInfo.CreateSpecificCulture("pl-PL"))</MudText>
+                    <MudText Typo="Typo.body2">Jan Kowalski</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    @if(random != 0)
+                    {
+                        <MudButton Variant="Variant.Text" Color="Color.Success">Accept</MudButton>
+                        <MudButton Variant="Variant.Text" Color="Color.Error">Reject</MudButton>
+                    }
+                    else
+                    {
+                        <MudButton Variant="Variant.Text" Color="Color.Info">Open</MudButton>
+                    }
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    }
+    <MudItem xs="12" md="4" lg="3" xl="2">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full mud-height-full py-8 cursor-pointer">
+            <MudIconButton Icon="@Icons.Material.Filled.AddCircleOutline" Size="Size.Large"></MudIconButton>
+        </MudPaper>
+    </MudItem>
+
+</MudGrid>
+
+@code {
+    [Parameter]
+    public string Filter { get; set; } = string.Empty;
+}
