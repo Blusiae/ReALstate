@@ -1,4 +1,4 @@
-﻿namespace ReALstate.App.Data
+﻿namespace ReALstate.App.Data.Entities
 {
     internal enum State
     {

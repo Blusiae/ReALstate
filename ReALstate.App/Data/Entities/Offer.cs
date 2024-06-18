@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
 
-namespace ReALstate.App.Data
+namespace ReALstate.App.Data.Entities
 {
     internal class Offer
     {
