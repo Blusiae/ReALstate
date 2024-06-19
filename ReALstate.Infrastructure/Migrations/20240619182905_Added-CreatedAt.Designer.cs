@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReALstate.Infrastructure.DbContext;
 
@@ -11,9 +12,11 @@ using ReALstate.Infrastructure.DbContext;
 namespace ReALstate.Infrastructure.Migrations
 {
     [DbContext(typeof(EstatesDbContext))]
-    partial class EstatesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240619182905_Added-CreatedAt")]
+    partial class AddedCreatedAt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,7 +189,6 @@ namespace ReALstate.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")

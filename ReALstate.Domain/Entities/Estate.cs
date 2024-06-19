@@ -4,6 +4,7 @@
     public abstract class Estate
     {
         public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
         public Guid? ResourceOwnerId { get; set; } = default!;
         public User? ResourceOwner { get; set; } = default!;
         public string Description { get; set; } = default!;
