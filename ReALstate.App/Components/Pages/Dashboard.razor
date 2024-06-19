@@ -1,4 +1,7 @@
 ﻿@page "/"
+@using ReALstate.App.Data.Entities
+@using ReALstate.App.Data.Repositories.Interfaces
+@inject IHouseRepository _houseRepo;
 
 <br />
 <MudText Typo="Typo.h3">Hello, <b>Username</b>!</MudText>
