@@ -11,6 +11,7 @@ namespace ReALstate.App.Data.Entities
         public string ImageUrl { get; set; } = default!;
         public double MetersSquared { get; set; }
         public double Value { get; set; }
+        public bool IsActive { get; set; } = true;
         public State State { get; set; } = default!;
         [ForeignKey(typeof(Address))]
         public int AddressId { get; set; }

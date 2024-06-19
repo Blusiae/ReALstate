@@ -16,5 +16,7 @@ namespace ReALstate.App.Data.Entities
         [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Estate Estate { get; set; } = default!;
         public double ProposedPrice { get; set; }
+        public bool IsAccepted { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }
