@@ -3,34 +3,34 @@ using SQLiteNetExtensions.Attributes;
 
 namespace ReALstate.App.Data.Entities
 {
-    internal class Estate
+    public class Estate
     {
         [PrimaryKey, AutoIncrement]
-        internal int Id { get; set; }
-        internal string Description { get; set; } = default!;
-        internal string ImageUrl { get; set; } = default!;
-        internal double MetersSquared { get; set; }
-        internal double Value { get; set; }
-        internal State State { get; set; } = default!;
+        public int Id { get; set; }
+        public string Description { get; set; } = default!;
+        public string ImageUrl { get; set; } = default!;
+        public double MetersSquared { get; set; }
+        public double Value { get; set; }
+        public State State { get; set; } = default!;
         [ForeignKey(typeof(Address))]
-        internal int AddressId { get; set; }
-        [OneToOne]
-        internal Address Address { get; set; } = default!;
+        public int AddressId { get; set; }
+        [OneToOne(CascadeOperations = CascadeOperation.All)]
+        public Address Address { get; set; } = default!;
         [ForeignKey(typeof(Customer))]
-        internal int OwnerId { get; set; }
-        [ManyToOne]
-        internal Customer Owner { get; set; } = default!;
-        internal DateTime? YearBuilt { get; set; }
+        public int OwnerId { get; set; }
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
+        public Customer Owner { get; set; } = default!;
+        public DateTime? YearBuilt { get; set; }
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
-        internal List<Offer> Offers { get; set; } = [];
+        public List<Offer> Offers { get; set; } = [];
 
         //Additional information
-        internal int BedroomsCount { get; set; }
-        internal int BathroomsCount { get; set; }
-        internal bool IsFurnished { get; set; }
-        internal bool HasBalcony { get; set; }
-        internal bool HasAirConditioning { get; set; }
-        internal bool HasHeating { get; set; }
+        public int BedroomsCount { get; set; }
+        public int BathroomsCount { get; set; }
+        public bool IsFurnished { get; set; }
+        public bool HasBalcony { get; set; }
+        public bool HasAirConditioning { get; set; }
+        public bool HasHeating { get; set; }
     }
 }

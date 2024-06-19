@@ -1,35 +1,36 @@
-﻿using SQLite;
+﻿using ReALstate.App.Data.Repositories.Interfaces;
+using SQLite;
+using SQLiteNetExtensionsAsync.Extensions;
 
 namespace ReALstate.App.Data.Repositories
 {
-    internal abstract class Repository<TEntity>(string dbPath) : IRepository<TEntity> where TEntity : class, new()
+    internal abstract class Repository<TEntity>() : IRepository<TEntity> where TEntity : class, new()
     {
-        private SQLiteAsyncConnection? _conn;
+        protected SQLiteAsyncConnection? _conn;
+        protected readonly string _dbPath = Path.Combine(FileSystem.AppDataDirectory, "realstate.db");
 
-        private async Task InitAsync()
+        public async Task InitAsync()
         {
             if (_conn != null)
                 return;
 
-            _conn = new SQLiteAsyncConnection(dbPath);
+            _conn = new SQLiteAsyncConnection(_dbPath);
             await _conn.CreateTableAsync<TEntity>();
         }
 
-        public async Task<bool> CreateAsync(TEntity entity)
+        public virtual async Task CreateAsync(TEntity entity)
         {
             await InitAsync();
-            return await _conn!.InsertAsync(entity) > 0;
+            await _conn!.InsertWithChildrenAsync(entity);
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
             await InitAsync();
             var entity = await _conn!.GetAsync<TEntity>(id);
 
             if (entity != null)
-                return await _conn!.DeleteAsync(entity) > 0;
-
-            return true;
+                await _conn!.DeleteAsync(entity, true);
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
@@ -43,12 +44,7 @@ namespace ReALstate.App.Data.Repositories
         {
             await InitAsync();
 
-            return await _conn!.GetAsync<TEntity>(id);
-        }
-
-        public Task<TEntity> UpdateAsync(TEntity entity)
-        {
-            throw new NotImplementedException();
+            return await _conn!.GetWithChildrenAsync<TEntity>(id);
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿namespace ReALstate.App.Data.Entities
 {
-    internal class House : Estate
+    public class House : Estate
     {
-        internal bool HasGarage { get; set; }
-        internal bool HasGarden { get; set; }
-        internal bool HasPool { get; set; }
-        internal bool HasTerrace { get; set; }
-        internal bool HasBasement { get; set; }
-        internal bool HasAttic { get; set; }
-        internal double LandInSquaredMeters { get; set; }
+        public bool HasGarage { get; set; }
+        public bool HasGarden { get; set; }
+        public bool HasPool { get; set; }
+        public bool HasTerrace { get; set; }
+        public bool HasBasement { get; set; }
+        public bool HasAttic { get; set; }
+        public double LandInSquaredMeters { get; set; }
     }
 }

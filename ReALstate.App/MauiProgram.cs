@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
+using ReALstate.App.Data.Repositories;
+using ReALstate.App.Data.Repositories.Interfaces;
 
 namespace ReALstate.App
 {
@@ -17,6 +19,13 @@ namespace ReALstate.App
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddMudServices();
+
+            builder.Services.AddTransient<IOfferRepository, OfferRepository>();
+            builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+            builder.Services.AddTransient<IHouseRepository, HouseRepository>();
+            builder.Services.AddTransient<IApartmentRepository, ApartmentRepository>();
+            builder.Services.AddTransient<IAddressRepository, AddressRepository>();
+            builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();

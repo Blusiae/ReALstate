@@ -1,6 +1,6 @@
 ﻿namespace ReALstate.App.Data.Entities
 {
-    internal enum State
+    public enum State
     {
         New,
         Great,

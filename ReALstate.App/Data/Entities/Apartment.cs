@@ -1,9 +1,9 @@
 ﻿namespace ReALstate.App.Data.Entities
 {
-    internal class Apartment : Estate
-    {
-        internal int Floor { get; set; }
-        internal bool IsElevatorAvailable { get; set; }
-        internal bool HasPrivateParkingSpace { get; set; }
+    public class Apartment : Estate 
+    { 
+        public int Floor { get; set; }
+        public bool IsElevatorAvailable { get; set; }
+        public bool HasPrivateParkingSpace { get; set; }
     }
 }
