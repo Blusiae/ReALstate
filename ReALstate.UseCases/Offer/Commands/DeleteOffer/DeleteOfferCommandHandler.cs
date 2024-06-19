@@ -18,6 +18,11 @@ namespace ReALstate.UseCases.Offer.Commands.DeleteOffer
                 throw new NotFoundException(nameof(Offer), request.Id.ToString());
             }
 
+            if(offer.ResourceOwnerId != request.ResourceOwnerId)
+            {
+                throw new UnauthorizedAccessException();
+            }
+
             await repository.Delete(offer);
         }
     }

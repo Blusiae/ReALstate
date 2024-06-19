@@ -13,10 +13,16 @@ namespace ReALstate.UseCases.Customers.Commands.DeleteCustomer
         {
             var customer = await repository.GetByIdAsync(request.Id);
 
-            if (customer is null)
+            if (customer == null)
             {
                 throw new NotFoundException(nameof(Customer), request.Id.ToString());
             }
+
+            if(customer.ResourceOwnerId != request.ResourceOwnerId)
+            {
+                throw new UnauthorizedAccessException();
+            }
+
 
             await repository.Delete(customer);
 

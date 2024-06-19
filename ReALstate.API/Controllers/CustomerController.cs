@@ -16,17 +16,18 @@ namespace ReALstate.API.Controllers
 
         // The GetAll method is responsible for returning all customers.
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerDto>>> GetAll()
+        public async Task<ActionResult<IEnumerable<CustomerDto>>> GetAll([FromQuery] GetAllCustomersQuery query)
         {
-            var restult = await mediator.Send(new GetAllCustomersQuery());
+            var result = await mediator.Send(query);
 
-            return Ok(restult);
+            return Ok(result);
         }
 
         // The GetById method is responsible for returning a specific customer by its ID.
         [HttpGet("{Id}")]
-        public async Task<ActionResult<CustomerDto>> GetById([FromRoute] GetCustomerByIdQuery query)
+        public async Task<ActionResult<CustomerDto>> GetById([FromRoute] GetCustomerByIdQuery query, [FromQuery] Guid resourceOwnerId)
         {
+            query.ResourceOwnerId = resourceOwnerId;
             var customer = await mediator.Send(query );
             return Ok(customer);
         }
@@ -40,8 +41,8 @@ namespace ReALstate.API.Controllers
         }
 
         // The Delete method is responsible for deleting a customer by its ID.
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] DeleteCustomerCommand command)
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromQuery] DeleteCustomerCommand command)
         {
             await mediator.Send(command);
             return Ok();

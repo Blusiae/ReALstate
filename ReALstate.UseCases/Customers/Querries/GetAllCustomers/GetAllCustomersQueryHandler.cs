@@ -14,6 +14,9 @@ namespace ReALstate.UseCases.Customers.Querries.GetAllOwners
         public async Task<IEnumerable<CustomerDto>> Handle(GetAllCustomersQuery request, CancellationToken cancellationToken)
         {
             var customers = await repository.GetAllAsync();
+         
+            customers = customers.Where(c => c.ResourceOwnerId == request.ResourceOwnerId);
+
             var dtos = mapper.Map<IEnumerable<CustomerDto>>(customers);
             return dtos;
         }

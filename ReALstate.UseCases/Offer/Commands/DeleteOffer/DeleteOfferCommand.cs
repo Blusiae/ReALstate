@@ -6,5 +6,6 @@ namespace ReALstate.UseCases.Offer.Commands.DeleteOffer
     public class DeleteOfferCommand : IRequest
     {
         public int Id { get; set; }
+        public Guid ResourceOwnerId { get; set; }
     }
 }

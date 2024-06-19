@@ -18,6 +18,12 @@ namespace ReALstate.UseCases.Houses.Commands.DeleteHouse
             {
                 throw new NotFoundException(nameof(House), request.Id.ToString());
             }
+
+            if (entity.ResourceOwnerId != request.ResourceOwnerId)
+            {
+                throw new UnauthorizedAccessException();
+            }
+
             await repository.Delete(entity);
 
         }

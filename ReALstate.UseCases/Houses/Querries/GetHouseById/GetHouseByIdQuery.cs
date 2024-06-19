@@ -7,6 +7,7 @@ namespace ReALstate.UseCases.Houses.Querries.GetHouseById
     // It is for getting a house by its id.
     public class GetHouseByIdQuery : IRequest<HouseDto>
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
+        public Guid ResourceOwnerId { get; set; }
     }
 }

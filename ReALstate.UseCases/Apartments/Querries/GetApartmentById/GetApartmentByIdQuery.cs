@@ -8,6 +8,7 @@ namespace ReALstate.UseCases.Apartments.Querries.GetApartmentById
 
     public class GetApartmentByIdQuery : IRequest<ApartmentDto>
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
+        public Guid ResourceOwnerId { get; set; }
     }
 }

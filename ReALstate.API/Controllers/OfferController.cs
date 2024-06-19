@@ -23,8 +23,9 @@ namespace ReALstate.API.Controllers
 
         // The GetById method is responsible for returning a specific offer by its ID.
         [HttpGet("{Id}")]
-        public async Task<ActionResult<OfferDto>> GetById([FromRoute] GetOfferByIdQuery query)
+        public async Task<ActionResult<OfferDto>> GetById([FromRoute] GetOfferByIdQuery query, [FromQuery] Guid resourceOwnerId)
         {
+            query.ResourceOwnerId = resourceOwnerId;
             var offer = await mediator.Send(query);
             return Ok(offer);
         }
@@ -38,8 +39,8 @@ namespace ReALstate.API.Controllers
         }
 
         //  The Delete method is responsible for deleting an offer by its ID.
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] DeleteOfferCommand command)
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromQuery] DeleteOfferCommand command)
         {
             await mediator.Send(command);
             return NoContent();

@@ -7,5 +7,6 @@ namespace ReALstate.UseCases.Customers.Querries.GetOwnerById
     public class GetCustomerByIdQuery : IRequest<CustomerDto>
     {
         public int Id { get; set; }
+        public Guid ResourceOwnerId { get; set; }
     }
 }

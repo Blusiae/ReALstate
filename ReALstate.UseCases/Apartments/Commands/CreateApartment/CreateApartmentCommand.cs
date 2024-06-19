@@ -7,6 +7,7 @@ namespace ReALstate.UseCases.Apartments.Commands.CreateApartment
     // It will be used in the CreateApartmentHandler class. It inherits from IRequest<int> interface, implementing CQRS pattern. <int> is the return type of the Handle method.
     public class CreateApartmentCommand : IRequest<int>
     {
+        public Guid ResourceOwnerId { get; set; }
         public string Description { get; set; } = default!;
         public string ImageUrl { get; set; } = default!;
         public double MetersSquared { get; set; }

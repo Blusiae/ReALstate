@@ -18,6 +18,11 @@ namespace ReALstate.API.Middlewares
                 context.Response.StatusCode = 404;
                 await context.Response.WriteAsync(ex.Message);
             }
+            catch (UnauthorizedAccessException ex)
+            {
+                context.Response.StatusCode = 403;
+                await context.Response.WriteAsync("UnauthorizedAccess" + ex.Message);
+            }
             catch (Exception ex)
             {
                 context.Response.StatusCode = 500;

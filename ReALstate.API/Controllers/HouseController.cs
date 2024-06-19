@@ -24,10 +24,11 @@ namespace ReALstate.API.Controllers
 
         // The GetById method is responsible for returning a specific house by its ID.
         [HttpGet("{Id}")]
-        public async Task<ActionResult<HouseDto>> GetById([FromRoute] GetHouseByIdQuery query)
+        public async Task<ActionResult<HouseDto>> GetById([FromRoute] GetHouseByIdQuery query, [FromQuery] Guid resourceOwnerId)
         {
-
-            return await mediator.Send(query);
+            query.ResourceOwnerId = resourceOwnerId;
+            var dto = await mediator.Send(query);
+            return Ok(dto);
         }
 
         // The Create method is responsible for creating a new house.
@@ -39,8 +40,8 @@ namespace ReALstate.API.Controllers
         }
 
         // The Delete method is responsible for deleting a house by its ID.
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] DeleteHouseCommand command)
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromQuery] DeleteHouseCommand command)
         {
             await mediator.Send(command);
             return Ok();

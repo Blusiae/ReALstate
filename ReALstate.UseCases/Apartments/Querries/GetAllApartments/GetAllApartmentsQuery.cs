@@ -9,6 +9,7 @@ namespace ReALstate.UseCases.Apartments.Querries.GetAllApartments
     public class GetAllApartmentsQuery : IRequest<IEnumerable<ApartmentDto>>
     {
         public int OwnerId { get; set; }
+        public Guid ResourceOwnerId { get; set; }
         // Todo: Add more query parameters
     }
 }
