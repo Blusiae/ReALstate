@@ -4,6 +4,7 @@
     public class Offer
     {
         public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
         public Guid? ResourceOwnerId { get; set; } = default!;
         public User? ResourceOwner { get; set; } = default!;
         public int CustomerId { get; set; }

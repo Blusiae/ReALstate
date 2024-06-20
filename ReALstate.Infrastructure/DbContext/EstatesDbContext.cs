@@ -20,6 +20,18 @@ namespace ReALstate.Infrastructure.DbContext
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Estate>()
+                .Property(estate => estate.CreatedAt).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Customer>()
+                .Property(customer => customer.CreatedAt).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Offer>()
+                .Property(offer => offer.CreatedAt).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<User>()
+                .Property(user =>  user.CreatedAt).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Estate>()
                 .OwnsOne(estate => estate.Address);
 
             modelBuilder.Entity<User>()

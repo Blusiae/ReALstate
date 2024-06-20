@@ -18,9 +18,9 @@ namespace ReALstate.UseCases.Apartments.Querries.GetAllApartments
 
             var dtos = mapper.Map<IEnumerable<ApartmentDto>>(apartments);
 
+            dtos = dtos.Where(d => d.ResourceOwnerId == request.ResourceOwnerId);
             if (request.OwnerId != 0)
             {
-                dtos = dtos.Where(d => d.ResourceOwnerId == request.ResourceOwnerId);
                 dtos = dtos.Where(a => a.OwnerId == request.OwnerId);
             }
             return dtos;
