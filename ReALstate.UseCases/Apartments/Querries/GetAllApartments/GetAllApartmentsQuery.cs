@@ -10,6 +10,7 @@ namespace ReALstate.UseCases.Apartments.Querries.GetAllApartments
     {
         public int OwnerId { get; set; }
         public Guid ResourceOwnerId { get; set; }
+        public bool? Active { get; set; }
         // Todo: Add more query parameters
     }
 }

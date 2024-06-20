@@ -7,6 +7,7 @@ namespace ReALstate.UseCases.Houses.Dtos
     {
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
+        public bool Active { get; set; }
         public Guid? ResourceOwnerId { get; set; }
         public string Description { get; set; } = default!;
         public string ImageUrl { get; set; } = default!;

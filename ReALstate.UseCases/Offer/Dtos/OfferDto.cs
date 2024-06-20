@@ -5,6 +5,7 @@
     { 
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
+        public bool Active { get; set; }
         public Guid? ResourceOwnerId { get; set; }
         public double ProposedPrice { get; set; }
         public int CustomerId { get; set; }

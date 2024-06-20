@@ -16,6 +16,9 @@ namespace ReALstate.UseCases.Houses.Querries.GetAllHouses
 
             entities = entities.Where(c => c.ResourceOwnerId == request.ResourceOwnerId);
 
+            if(request.Active != null)
+                entities = entities.Where(c => c.Active == request.Active);
+
             var dtos = mapper.Map<IEnumerable<HouseDto>>(entities);
 
             if (request.OwnerId != 0)

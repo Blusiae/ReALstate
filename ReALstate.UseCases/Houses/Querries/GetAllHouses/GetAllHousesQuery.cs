@@ -8,5 +8,6 @@ namespace ReALstate.UseCases.Houses.Querries.GetAllHouses
     {
         public int OwnerId { get; set; }
         public Guid ResourceOwnerId { get; set; }
+        public bool? Active { get; set; }
     }
 }
