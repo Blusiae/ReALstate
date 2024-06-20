@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReALstate.Infrastructure.DbContext;
 
@@ -11,9 +12,11 @@ using ReALstate.Infrastructure.DbContext;
 namespace ReALstate.Infrastructure.Migrations
 {
     [DbContext(typeof(EstatesDbContext))]
-    partial class EstatesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240620164843_Test-Repair")]
+    partial class TestRepair
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,13 +60,16 @@ namespace ReALstate.Infrastructure.Migrations
 
                     b.HasIndex("ResourceOwnerId");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("ReALstate.Domain.Entities.Estate", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("Active")
                         .ValueGeneratedOnAdd()
@@ -134,7 +140,7 @@ namespace ReALstate.Infrastructure.Migrations
 
                     b.HasIndex("ResourceOwnerId");
 
-                    b.ToTable("Estates", (string)null);
+                    b.ToTable("Estates");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Estate");
 
@@ -183,7 +189,7 @@ namespace ReALstate.Infrastructure.Migrations
 
                     b.HasIndex("ResourceOwnerId");
 
-                    b.ToTable("Offers", (string)null);
+                    b.ToTable("Offers");
                 });
 
             modelBuilder.Entity("ReALstate.Domain.Entities.User", b =>
@@ -210,7 +216,7 @@ namespace ReALstate.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("ReALstate.Domain.Entities.Apartment", b =>
@@ -284,7 +290,7 @@ namespace ReALstate.Infrastructure.Migrations
                         .WithMany("Estates")
                         .HasForeignKey("ResourceOwnerId");
 
-                    b.OwnsOne("ReALstate.Domain.Entities.Estate.Address#ReALstate.Domain.Entities.Address", "Address", b1 =>
+                    b.OwnsOne("ReALstate.Domain.Entities.Address", "Address", b1 =>
                         {
                             b1.Property<int>("EstateId")
                                 .HasColumnType("int");
@@ -315,7 +321,7 @@ namespace ReALstate.Infrastructure.Migrations
 
                             b1.HasKey("EstateId");
 
-                            b1.ToTable("Estates", (string)null);
+                            b1.ToTable("Estates");
 
                             b1.WithOwner()
                                 .HasForeignKey("EstateId");

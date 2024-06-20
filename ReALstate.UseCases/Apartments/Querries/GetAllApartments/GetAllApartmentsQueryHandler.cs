@@ -16,6 +16,9 @@ namespace ReALstate.UseCases.Apartments.Querries.GetAllApartments
         {
             var apartments = await repository.GetAllAsync();
 
+            if (request.Active != null)
+                apartments = apartments.Where(c => c.Active == request.Active);
+
             var dtos = mapper.Map<IEnumerable<ApartmentDto>>(apartments);
 
             dtos = dtos.Where(d => d.ResourceOwnerId == request.ResourceOwnerId);

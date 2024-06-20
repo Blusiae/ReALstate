@@ -7,6 +7,7 @@ namespace ReALstate.UseCases.Offer.Querries.GetAllOffers
     public class GetAllOffersQuery : IRequest<IEnumerable<OfferDto>>
     {
         public Guid ResourceOwnerId { get; set; }
+        public bool? Active { get; set; }
         public int CustomerId { get; set; }
         public int EstateId { get; set; }
     }

@@ -19,6 +19,15 @@ namespace ReALstate.Infrastructure.DbContext
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Estate> ()
+                .Property(estate => estate.Id).ValueGeneratedNever();
+
+            modelBuilder.Entity<Estate>()
+                .Property(estate => estate.Active).HasDefaultValue(true);
+
+            modelBuilder.Entity<Offer>()
+                .Property(offer => offer.Active).HasDefaultValue(true);
+
             modelBuilder.Entity<Estate>()
                 .Property(estate => estate.CreatedAt).ValueGeneratedOnAdd();
 

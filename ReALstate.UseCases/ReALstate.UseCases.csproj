@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Estates\**" />
+    <EmbeddedResource Remove="Estates\**" />
+    <None Remove="Estates\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
@@ -14,12 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ReALstate.Domain\ReALstate.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Estates\Commands\" />
-    <Folder Include="Estates\Dtos\" />
-    <Folder Include="Estates\Querries\" />
   </ItemGroup>
 
 </Project>
